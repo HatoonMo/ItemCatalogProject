@@ -88,3 +88,4 @@ BONUS: Comes with cool sticker pack that can be used to decorate and personalize
 
 session.add(catItem2)
 session.commit()
+print ("added category items!")
