@@ -257,9 +257,10 @@ def editItem(item_name):
     category = session.query(Category).filter_by(
         name=editedItem.category_name).one()
     if login_session['user_id'] != editedItem.user_id:
-        return "<script>function myFunction() {alert('You are not authorized "
-        "to edit items you have not added.');}"
-        "</script><body onload='myFunction()'>"
+        script = "<script>function myFunction() {alert('You are not "
+        script += "authorized to edit items you have not added.');}"
+        script += "</script><body onload='myFunction()'>"
+        return script
     if request.method == 'POST':
         if request.form['title']:
             editedItem.name = request.form['title']
@@ -285,9 +286,10 @@ def deleteItem(item_name):
     category = session.query(Category).filter_by(
         name=deletedItem.category_name).one()
     if login_session['user_id'] != deletedItem.user_id:
-        return "<script>function myFunction() {alert('You are not authorized "
-        "to delete items you have not added.');}"
-        "</script><body onload='myFunction()'>"
+        script = "<script>function myFunction() {alert('You are not "
+        script += "authorized to delete items you have not added.');}"
+        script += "</script><body onload='myFunction()'>"
+        return script
     if request.method == 'POST':
         session.delete(deletedItem)
         session.commit()
