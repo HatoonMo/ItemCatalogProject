@@ -1,0 +1,18 @@
+<div class="row divider blue">
+   <div class="col-md-12"></div>
+</div>
+<div class="row banner main">
+   <div class="header">
+      <a href="{{url_for('browseCatalog')}}">
+         <h1>Catalog App</h1>
+      </a>
+      <div class="header-right">
+         {%if 'username' not in session %}
+         <a href="{{url_for('showLogin')}}"> Login </a>
+         {% else %}
+         <a href="{{url_for('disconnect')}}">Logout </a>
+         {% endif %}
+      </div>
+   </div>
+   <div class="col-md-12"></div>
+</div>
